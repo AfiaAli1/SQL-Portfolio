@@ -155,3 +155,32 @@ SELECT
 FROM
 	patients
 
+
+--MINUS operator--
+
+SELECT
+    MAX(population) - MIN(population) AS population_difference
+FROM
+    city
+    
+--LIKE operator--
+
+SELECT
+    DISTINCT(city)
+FROM
+    station
+WHERE 
+    city LIKE 'a%' OR city LIKE 'e%' OR city LIKE 'i%' OR city LIKE 'o%' OR city like 'u%'
+
+
+--NOT LIKE--
+SELECT 
+	DISTINCT(city)
+FROM
+	station
+WHERE 
+	city NOT LIKE 'a%' 
+	AND city NOT LIKE 'e%' 
+	AND CITY NOT LIKE 'i%' 
+	AND CITY NOT LIKE 'o%' 
+	AND city NOT LIKE 'u%'
