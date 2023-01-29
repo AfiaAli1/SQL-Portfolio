@@ -16,6 +16,25 @@ FROM
 	patients
 WHERE 
 	gender = 'M' 
+	
+
+--AND operator can be used with the WHERE clause to return values that satisfy both condtions--
+
+SELECT 
+    activity_date, pe_description
+FROM 
+    los_angeles_restaurant_health_inspections
+WHERE 
+    facility_name = 'STREET CHURROS' AND score <95
+
+
+--OR operator is used with the WHERE clause to return values that meet either conditions--
+SELECT 
+	title
+FROM 
+	songs
+WHERE 
+	mood = 'epic' OR released >1990;
   
   
 --GROUP BY clause is used to group rows that have the same value into a summary table--
@@ -82,7 +101,7 @@ ORDER BY
     first_name, order_details DESC
     
     
---DISTINT is used to ensure duplicate values are not output-
+--DISTINCT is used to ensure duplicate values are not output-
 
 SELECT
     DISTINCT(home_library_code)
@@ -100,4 +119,3 @@ FROM
     oscar_nominees
 WHERE
     nominee = 'Abigail Breslin'
-    
