@@ -101,5 +101,3 @@ FROM
 WHERE
     nominee = 'Abigail Breslin'
     
---AND 
-
