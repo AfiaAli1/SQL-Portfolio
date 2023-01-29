@@ -1,0 +1,105 @@
+--Basic SQL Query--
+--SELECT clause is used to select columns--
+--FROM clause is used to select table--
+
+SELECT 
+  *
+FROM 
+  city
+
+
+--WHERE clause is used to filter the data so only data meeting a specific criteria is returned--
+
+SELECT 
+	first_name, last_name, gender
+FROM
+	patients
+WHERE 
+	gender = 'M' 
+  
+  
+--GROUP BY clause is used to group rows that have the same value into a summary table--
+
+SELECT
+    city, property_type, AVG(bathrooms) AS average_bathrooms, AVG(bedrooms) AS average_bedrooms
+FROM
+    airbnb_search_details
+GROUP BY
+    property_type, city
+    
+    
+--ORDER BY clause is used to sort the data by ascending or descending order--
+
+SELECT 
+	first_name
+FROM
+	patients
+ORDER BY
+	LENGTH(first_name), first_name ASC
+
+
+-- LIMIT is used to limit the number of returned data--
+
+SELECT 
+    company, continent
+FROM 
+    forbes_global_2010_2014
+WHERE
+    sector = 'Financials'
+ORDER BY
+    profits DESC
+LIMIT 1
+
+
+--JOINS are used to connect tables--
+-INNER JOIN is used to return matching values found in both tables--
+
+SELECT
+    first_name, order_date, order_details, total_order_cost AS cost
+FROM 
+    customers
+INNER JOIN
+    orders
+ON
+    customers.id = orders.cust_id
+WHERE
+    first_name = 'Jill' OR first_name = 'Eva'
+ORDER BY 
+    customers.id ASC
+    
+    
+ --LEFT JOINS are used to return all the records in the left table and matching records in the right table--
+ 
+ SELECT
+    first_name, last_name, city, order_details
+FROM 
+    customers
+LEFT JOIN 
+    orders
+ON
+    customers.id = orders.cust_id
+ORDER BY 
+    first_name, order_details DESC
+    
+    
+--DISTINT is used to ensure duplicate values are not output-
+
+SELECT
+    DISTINCT(home_library_code)
+FROM 
+    library_usage
+WHERE 
+    notice_preference_definition = 'email' AND provided_email_address = '0' AND circulation_active_year = '2016'
+    
+
+--COUNT is used to count the number of values that meets a specific vriteria--
+
+SELECT 
+    COUNT(movie)
+FROM
+    oscar_nominees
+WHERE
+    nominee = 'Abigail Breslin'
+    
+--AND 
+
