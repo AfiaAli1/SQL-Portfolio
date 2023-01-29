@@ -119,3 +119,39 @@ FROM
     oscar_nominees
 WHERE
     nominee = 'Abigail Breslin'
+    
+--CASE is used to identify different expressions and return a value when a condtion is met--
+
+--MAX is used to returns the largest volume of the expressed column--
+
+SELECT
+    id, first_name, last_name, department_id, MAX(salary) AS current_salary
+FROM 
+    ms_employee_salary
+GROUP BY
+    id
+ORDER BY
+    id ASC
+
+
+--SUM is used to total the value of a column-- 
+
+SELECT 
+    cust_id, SUM(total_order_cost) AS revenue
+FROM
+    orders
+WHERE 
+    order_date BETWEEN '2019-03-01' AND '2019-03-31'
+GROUP BY
+    cust_id
+ORDER BY
+    revenue DESC
+  
+  
+--CONCAT is used to join two or more columns together--
+
+SELECT 
+	CONCAT(first_name, ' ', last_name) AS full_name
+FROM
+	patients
+
